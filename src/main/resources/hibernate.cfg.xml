@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:file:./ischolardb</property>
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- values:
+        1. update (Update the schema if necessary)
+        2. create (create the schema and destroy previous data)
+        3. create-drop (create and then destroy the schema at the end of the session)
+        4. none (disable ddl handling)
+        5. validate (validate the schema , make no changes to the database)
+       -->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="at.fhj.ischolar.data.Course"/>
+        <mapping class="at.fhj.ischolar.data.CourseSchedule"/>
+        <mapping class="at.fhj.ischolar.data.User"/>
+        <mapping class="at.fhj.ischolar.data.Room"/>
+    </session-factory>
+</hibernate-configuration>

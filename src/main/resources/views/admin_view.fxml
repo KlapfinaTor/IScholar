@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #EDF2F6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.ischolar.controllers.AdminViewController">
+   <children>
+      <VBox layoutY="72.0" prefHeight="731.0" prefWidth="72.0" style="-fx-background-color: #dcdcdc;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="69.0">
+         <children>
+            <Button fx:id="btnToOverview" mnemonicParsing="false" onAction="#changeSceneToOverview" prefHeight="58.0" prefWidth="72.0" stylesheets="@../styling.css" textFill="#d3d3d3">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../outline_leaderboard_black_24dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnToPlan" mnemonicParsing="false" onAction="#changeSceneToPlan" prefHeight="58.0" prefWidth="72.0" stylesheets="@../styling.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../outline_edit_black_24dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnToAdmin" mnemonicParsing="false" onAction="#changeSceneToAdmin" prefHeight="58.0" prefWidth="72.0" style="-fx-background-color: #EDF2F6;" stylesheets="@../styling.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../outline_settings_black_24dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="-7.0" layoutY="-5.0" prefHeight="76.0" prefWidth="1015.0" style="-fx-background-color: #6B519E; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <GridPane prefHeight="76.0" prefWidth="979.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="IScholar" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="12.0" />
+               </GridPane.margin>
+            </Label>
+            <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#changeUser" text="Change user" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="12.0" />
+               </GridPane.margin></Button>
+            <Group GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="100.0" layoutY="28.0" text="Logged in as:" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelLoggedInUserName" layoutX="196.0" layoutY="28.0" text="None" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Pane layoutX="370.0" layoutY="88.0" prefHeight="318.0" prefWidth="273.0" style="-fx-background-color: #fff;" AnchorPane.topAnchor="88.0">
+         <children>
+            <TableView fx:id="tableCourses" layoutX="7.0" layoutY="35.0" prefHeight="200.0" prefWidth="252.0">
+              <columns>
+                <TableColumn fx:id="tableCoursesNameCol" prefWidth="120.0" text="Course Name" />
+                <TableColumn fx:id="tableCoursesUserCol" prefWidth="131.0" text="Lecturer" />
+              </columns>
+            </TableView>
+            <TextField fx:id="textCourseName" layoutX="7.0" layoutY="250.0" prefHeight="25.0" prefWidth="106.0" promptText="Course Name" />
+            <ChoiceBox fx:id="selectCourseUser" layoutX="124.0" layoutY="250.0" prefHeight="25.0" prefWidth="91.0" />
+            <Button fx:id="btnAddCourse" layoutX="221.0" layoutY="250.0" mnemonicParsing="false" onAction="#addCourse" text="Add" />
+            <Label layoutX="14.0" layoutY="1.0" text="Courses" textFill="#9a9a9a">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRemoveCourse" layoutX="200.0" layoutY="6.0" mnemonicParsing="false" onAction="#removeSelectedCourse" text="Remove" />
+            <Label fx:id="labelCourseInfo" layoutX="7.0" layoutY="287.0" text="Label" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="86.0" layoutY="86.0" prefHeight="318.0" prefWidth="273.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="88.0" AnchorPane.topAnchor="88.0">
+         <children>
+            <TableView fx:id="tableRooms" layoutX="7.0" layoutY="35.0" prefHeight="200.0" prefWidth="252.0">
+               <columns>
+                  <TableColumn fx:id="tableRoomsNameCol" prefWidth="251.0" text="Room Name" />
+               </columns>
+            </TableView>
+            <TextField fx:id="textRoomName" layoutX="7.0" layoutY="250.0" prefHeight="25.0" prefWidth="200.0" promptText="Room Name" />
+            <Button fx:id="btnAddRoom" layoutX="221.0" layoutY="250.0" mnemonicParsing="false" onAction="#addRoom" text="Add" />
+            <Label layoutX="14.0" layoutY="1.0" text="Rooms" textFill="#9a9a9a">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRemoveRoom" layoutX="200.0" layoutY="6.0" mnemonicParsing="false" onAction="#removeSelectedRoom" text="Remove" />
+            <Label fx:id="labelRoomInfo" layoutX="7.0" layoutY="287.0" text="Label" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="86.0" layoutY="414.0" prefHeight="379.0" prefWidth="899.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="88.0">
+         <children>
+            <TableView fx:id="tableUsers" layoutX="7.0" layoutY="35.0" prefHeight="266.0" prefWidth="887.0">
+               <columns>
+                  <TableColumn fx:id="tableUsersNameCol1" prefWidth="131.0" text="User Name" />
+                  <TableColumn fx:id="tableUsersLoginNameCol1" prefWidth="142.0" text="Login Name" />
+                  <TableColumn fx:id="tableUsersPasswordCol1" prefWidth="83.0" text="Password" />
+                  <TableColumn fx:id="tableUsersRoleCol1" maxWidth="113.0" prefWidth="101.0" text="Role" />
+                  <TableColumn fx:id="tableUsersNoteCol1" maxWidth="409.0" prefWidth="409.0" text="Note" />
+               </columns>
+            </TableView>
+            <TextField fx:id="textUserName" layoutX="8.0" layoutY="308.0" prefHeight="25.0" prefWidth="123.0" promptText="User Name" />
+            <Button fx:id="btnAddUser" layoutX="500.0" layoutY="308.0" mnemonicParsing="false" onAction="#addUser" text="Add" />
+            <Label layoutX="14.0" layoutY="1.0" text="Users" textFill="#9a9a9a">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRemoveUser" layoutX="835.0" layoutY="6.0" mnemonicParsing="false" onAction="#removeSelectedUser" text="Remove" />
+            <Label fx:id="labelUserInfo" layoutX="7.0" layoutY="340.0" text="Label" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textUserLoginName" layoutX="143.0" layoutY="308.0" prefHeight="25.0" prefWidth="123.0" promptText="Login Name" />
+            <TextField fx:id="textUserPassword" layoutX="272.0" layoutY="308.0" prefHeight="25.0" prefWidth="123.0" promptText="Password" />
+            <ChoiceBox fx:id="selectUserRole" layoutX="402.0" layoutY="308.0" prefHeight="25.0" prefWidth="91.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="653.0" layoutY="86.0" prefHeight="318.0" prefWidth="333.0" style="-fx-background-color: #ffff;" AnchorPane.topAnchor="88.0">
+         <children>
+            <PieChart fx:id="pieChart" labelLineLength="10.0" prefHeight="318.0" prefWidth="360.0" />
+            <Label layoutX="14.0" text="Statistics" textFill="#9a9a9a">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

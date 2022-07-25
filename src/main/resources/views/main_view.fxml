@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #EDF2F6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.ischolar.controllers.MainViewController">
+<children>
+    <VBox layoutY="72.0" prefHeight="731.0" prefWidth="72.0" style="-fx-background-color: #dcdcdc;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="69.0">
+        <children>
+            <Button fx:id="btnToOverview" mnemonicParsing="false" onAction="#changeSceneToOverview" prefHeight="58.0" prefWidth="72.0" style="-fx-background-color: #EDF2F6;" stylesheets="@../styling.css" textFill="#d3d3d3">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../outline_leaderboard_black_24dp.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnToPlan" mnemonicParsing="false" onAction="#changeSceneToPlan" prefHeight="58.0" prefWidth="72.0" stylesheets="@../styling.css">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../outline_edit_black_24dp.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnToAdmin" mnemonicParsing="false" onAction="#changeSceneToAdmin" prefHeight="58.0" prefWidth="72.0" stylesheets="@../styling.css">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../outline_settings_black_24dp.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </children>
+    </VBox>
+    <Pane layoutX="-7.0" layoutY="-5.0" prefHeight="76.0" prefWidth="1015.0" style="-fx-background-color: #6B519E; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <GridPane prefHeight="76.0" prefWidth="979.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="IScholar" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                <font>
+                    <Font size="30.0" />
+                </font>
+               <GridPane.margin>
+                  <Insets left="12.0" />
+               </GridPane.margin>
+            </Label>
+            <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#changeUser" text="Change user" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="12.0" />
+               </GridPane.margin></Button>
+            <Group GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="100.0" layoutY="28.0" text="Logged in as:" textFill="WHITE">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Label>
+                  <Label fx:id="labelLoggedInUserName" layoutX="196.0" layoutY="28.0" text="None" textAlignment="CENTER" textFill="WHITE">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Pane layoutX="79.0" layoutY="88.0" prefHeight="127.0" prefWidth="220.0" style="-fx-background-color: #ffff;" AnchorPane.leftAnchor="88.0" AnchorPane.topAnchor="88.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Enroll into course">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="choiceEnrollCourse" layoutX="14.0" layoutY="42.0" prefHeight="25.0" prefWidth="141.0" />
+            <Button fx:id="btnEnrollCourse" layoutX="160.0" layoutY="42.0" mnemonicParsing="false" onAction="#enrollIntoCourse" text="Enroll" />
+            <Label fx:id="labelWarningEnroll" layoutX="14.0" layoutY="75.0" prefHeight="45.0" prefWidth="191.0" textFill="RED" />
+         </children></Pane>
+      <Pane layoutX="88.0" layoutY="233.0" prefHeight="441.0" prefWidth="220.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="126.0" AnchorPane.leftAnchor="88.0" AnchorPane.topAnchor="233.0">
+         <children>
+            <Label layoutX="15.0" layoutY="14.0" text="Enrolled Courses">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableEnrolledCourses" layoutX="15.0" layoutY="53.0" prefHeight="340.0" prefWidth="191.0">
+              <columns>
+                <TableColumn fx:id="tableColumnCourseName" prefWidth="190.0" text="Course Name" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnOptOut" layoutX="15.0" layoutY="400.0" mnemonicParsing="false" onAction="#optOutFromSelectedCourse" text="Opt out" />
+         </children>
+      </Pane>
+    <GridPane fx:id="gridPaneCalendar" layoutX="316.0" layoutY="88.0" prefHeight="700.0" prefWidth="672.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="88.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+    </GridPane>
+</children>
+
+</AnchorPane>
